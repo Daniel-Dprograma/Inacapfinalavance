@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Previene el desbordamiento horizontal */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+    padding: 10px 40px;
+    border-bottom: 2px solid #2a2a2a;
+}
+
+.logo img {
+    height: 70px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la proporción de aspecto del logo */
+    margin-left: 20px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    max-width: 500px; /* Ajusta el ancho máximo de la barra de búsqueda */
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #2a2a2a;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.search-bar input::placeholder {
+    color: #7c7c7c;
+}
+
+.user-cart-icons {
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+    position: relative;
+}
+
+.user-icon img,
+.cart-icon img,
+.deseos-icon img,
+.divisas-icon img {
+    width: 30px; /* Ajusta el tamaño de los iconos */
+    height: 30px; /* Ajusta el tamaño de los iconos */
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #1f1f1f;
+    padding: 10px;
+    border: 2px solid #2a2a2a;
+    border-radius: 5px;
+    color: #e0e0e0;
+    z-index: 1000;
+}
+
+.user-icon:hover .dropdown-menu,
+.cart-icon:hover .dropdown-menu,
+.deseos-icon:hover .dropdown-menu,
+.divisas-icon:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.dropdown-menu a:hover {
+    color: #ff69b4;
+}
+
+.dropdown-menu select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    background-color: #1f1f1f;
+    padding: 10px 40px;
+}
+
+.categories ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.categories li {
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.categories a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.categories a:hover {
+    color: #ff69b4; /* Neon Pink */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.products {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding: 10px;
+    background-color: #1f1f1f;
+    max-width: 100%; /* Asegura que los productos no se desborden */
+}
+
+.promotions {
+    padding: 20px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.promotions h2 {
+    margin-bottom: 20px;
+    color: #ff69b4; /* Neon Pink */
+    text-align: center;
+}
+
+.promotion-items, .recommendation-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.promotion-item, .recommendation-item {
+    width: 100%;
+    max-width: 600px;
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.promotion-item img, .recommendation-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-icon img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.chatbot-window {
+    display: none;
+    background-color: #1f1f1f;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #2a2a2a;
+    color: #e0e0e0;
+}
+
+.chatbot-messages {
+    height: 80%;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.chatbot-input-container {
+    display: flex;
+}
+
+#chatbot-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#chatbot-send {
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cart-icon:hover .cart-dropdown,
+.chatbot-icon:hover + .chatbot-window {
+    display: block;
+}
+
+/* Estilos para el mensaje de bienvenida del bot */
+.welcome-bot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.welcome-bot .bot-message {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+    max-width: 500px;
+}
+
+.welcome-bot .bot-message img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.welcome-bot .bot-message p {
+    margin-bottom: 20px;
+    text-align: center; /* Centra el texto */
+}
+
+.welcome-bot .close-welcome-bot {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.welcome-bot .close-welcome-bot:hover {
+    background-color: #ff1493;
+}
